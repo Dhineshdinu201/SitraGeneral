@@ -1,0 +1,300 @@
+<html>
+	<head>
+		<style>			
+			.wraper{
+				width:100%;
+				border:2px solid #0254A9;
+				border-radius:15px;
+				float:left;
+			}
+			.div-heading{
+				width:100%;
+				height:30px;
+				color:#DEF1FC;
+				background-color:#0254A9;
+				border-radius:10px 10px 0px 0px;
+				font-weight:bold;
+				text-align:center;
+			}
+			.div-heading span{
+				font-size:1.3em;
+			}
+			.div-content{
+				width:100%;
+				margin-top:20px;
+				margin-left:10px;
+			}
+			.div-content-heading{
+				font-weight:bold;
+				font-size:1.1em;
+				border-bottom:3px solid #0254A9;
+			}
+			.div-content-block{
+				float:left;
+				width:90%;
+				margin-left:10px;
+				margin-right:10px;
+				padding:5px;
+			}
+			
+			
+			.div-content-block-span1{
+				color:#D43C75;
+				font-size:1.1em;
+			}
+			.div-content-block-span-green{
+				color:#60905E;
+				font-size:1.1em;
+			}
+			.div-content-block-span-orange{
+				color:#f45e13;
+				font-size:1.1em;
+			}
+			.div-content-block-span-orange-light{
+				color:#f29668;
+				font-size:1.1em;
+			}
+			
+			.div-content-block-span-others{
+				color:#03536A;
+				font-size:1.1em;
+			}
+			.div-content-block-span2{
+				color:#262626;
+				font-size:1em;
+			}
+			.div-wrapper-left{
+				width:100%;
+				float:left;
+			}
+			.tab {
+			  overflow: hidden;
+			  border: 0px solid #ccc;
+			  background-color: #f1f1f1;
+			  width:95%;
+			}
+
+			/* Style the buttons inside the tab */
+			.tab button {
+			  background-color: inherit;
+			  float: left;
+			  border: none;
+			  outline: none;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			  font-size: 0.8em;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab button:hover {
+			  background-color: #ddd;
+			}
+
+			/* Create an active/current tablink class */
+			.tab button.active {
+			  background-color: #ccc;
+			}
+			/* Style the tab content */
+			.tabcontent {
+			  display: none;
+			  padding: 6px 12px;
+			  border: 0px solid #ccc;
+			  border-top: none;
+			  width:90%;
+			}
+			.div-content-block-span-dark{
+				color:#f45e13;
+				font-size:1.1em;
+			}
+			.div-content-block-span-light{
+				color:#C58100;
+				font-size:1.1em;
+			}
+			.div-bg-heading-light{
+				background-color: #C58100;
+			}
+			.div-bg-heading-dark{
+				background-color: #f45e13;
+			}
+		</style>
+	</head>
+	<body onload="openCity(event, 'comprehensive'); activeClass()">
+		<div class="wraper">
+			<div class="div-heading">
+				<span>ENGINEERING</span>
+			</div>
+			<div class="div-content">
+				<div class="tab">
+				  <button class="tablinks" onclick="openCity(event, 'comprehensive')">Comprehensive<br/> Energy<br/> Audit</button>
+				  <button class="tablinks" onclick="openCity(event, 'mandatory')">Mandatory<br/> Energy<br/> Audit</button>
+				  <button class="tablinks" onclick="openCity(event, 'others')">Other<br/> Studies</button>
+				</div>
+				<div id="comprehensive" class="tabcontent">
+					<div style="width:100%;height:20px;color:white;border-radius:0px 0px 15px 15px;text-align:center;font-size:1em;font-weight:bold;" class="div-bg-heading-dark">
+						<span>Electrical Engineering</span>
+					</div>
+					<div class="div-wrapper-left">
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Macro energy information - Energy cost - Power quality - System capacity, adequacy and conservation potential</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Power handling losses - Transformation competency and voltage profile - PF correction - Capacitor aging appraisal - Cable loss estimation - Review of maintenance records - </span>
+						</div>
+
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Evaluation of mills specific energy consumption - Reasoning for motor burnouts - Separation of productive and auxiliary loads</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Machine-wise energy consumption measurement - Ring frame analysis - Scrutiny of conservation measures attempted</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Suggestions for better generation, lighting, drives and other utilities</span>
+						</div>						
+					</div>
+					<!-- End Electrical block -->
+					<div style="float:left;width:95%;height:22px;color:white;border-radius:0px 0px 15px 15px;text-align:center;font-size:0.9em;font-weight:bold;" class="div-bg-heading-light">
+						<span>Mechanical Engineering</span>
+					</div>
+					<div class="div-wrapper-left">
+						<div class="div-content-block">
+							<span class="div-content-block-span-light">&#10004;</span>
+							<span class="div-content-block-span2">Humidification - System analysis for each department - Supply, exhaust and pumping systems details</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-light">&#10004;</span>
+							<span class="div-content-block-span2">Present condition of humidification system - Air flow distribution analysis - Heat load analysis - Humidification power pattern - Plant motor loading analysis</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-light">&#10004;</span>
+							<span class="div-content-block-span2">Temperature and RH analysis - Standard temperature and RH for different departments - Plant operation and maintenance</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-light">&#10004;</span>
+							<span class="div-content-block-span2">Compressors - Power pattern - Leakage analysis - Boilers and thermic fluid heaters</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-light">&#10004;</span>
+							<span class="div-content-block-span2">Existing system details - Thermal efficiency analysis - Recommendations for implementation</span>
+						</div>
+					</div>
+					<!-- End Mechanical Engineering block -->
+					<div style="float:left;width:95%;height:22px;color:white;border-radius:0px 0px 15px 15px;text-align:center;font-size:0.9em;font-weight:bold;" class="div-bg-heading-dark">
+						<span>Textile Engineering</span>
+					</div>
+					<div class="div-wrapper-left">
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Installed motor hp in mills and load distribution analysis - Scope for energy conservation in preparatory, spinning and post-spinning machines</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Choice of energy efficient components or accessories: motors, bobbins, belts, spindles, spindle oils, spindle tapes, tin roller, pneumafil fans etc.</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Optimization of package size in ring frames - Modification in machine design or structure to reduce load</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Details of SITRA studies pertaining to energy conservation - Production and energy consumption analysis</span>
+						</div>
+						<div class="div-content-block">
+							<span class="div-content-block-span-dark">&#10004;</span>
+							<span class="div-content-block-span2">Economics of energy efficient equipment</span>
+						</div>
+					</div>
+					<!-- End Textile Engineering block -->
+				</div>
+				<!-- End Comprehensive Tab -->
+
+				<div id="mandatory" class="tabcontent">
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Production and energy consumption of different textile machines</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Specific energy consumption and standards for textile mills</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Instrumentation for energy data acquisition / monitoring and recording</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Maintenance management of electrical installation, productive and non-productive machines</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Present status of Energy Conservation Programme</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-orange">&#10004;</span>
+						<span class="div-content-block-span2">Short-term and long-term measures for energy conservation with/without financial commitments and pay-back period</span>
+					</div>
+				</div>
+				<!-- End Mandatory Block -->
+
+				<div id="others" class="tabcontent">
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Power Quality Audit</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Humidification Study</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Compressed Air System Study</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Noise Level Study</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Vibration Study</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Illumination Study</span>
+					</div>
+					<div class="div-content-block">
+						<span class="div-content-block-span-others">&#10004;</span>
+						<span class="div-content-block-span2">Mill UKG Assessment Study</span>
+					</div>
+				</div>
+				<!-- End Other Services block -->
+			</div>		
+			<div>
+				&nbsp;
+			</div>
+		</div>
+	</body>
+	<script>
+	
+	function openCity(evt, cityName) {
+	  var i, tabcontent, tablinks;
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	  }
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+	  document.getElementById(cityName).style.display = "block";
+	  evt.currentTarget.className += " active";
+	}
+	function activeClass(){
+		document.getElementById('comprehensive').className = "tabcontent active";
+	}
+	</script>
+</html>

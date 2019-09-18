@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.learning.sitrageneral">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/sitragenapp"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Register"></activity>
+        <activity
+            android:name=".TestingChemistry"
+            android:label="@string/title_activity_testing_chemistry"
+            android:theme="@style/noaction" />
+        <activity android:name=".PdfViewer" />
+        <activity
+            android:name=".activity_two_for_one_twister"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".double_winding"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".autowinding"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".work_assignment"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".twist_contraction"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".ring_frame"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".fly_frames"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".comber"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".lap_former"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Drawing"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".CardActivity"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/noaction" />
+        <activity android:name=".SitraNorms" />
+        <activity
+            android:name=".webview"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".E_tech"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".PdfActivity"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Profile_update"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Enquiry"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Conversions"
+            android:label="@string/title_activity_conversions"
+            android:screenOrientation="portrait"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Testing_Calibration"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Testint_Weaving"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".TextView_html"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Con_Engg"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Coe"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".ListPublications"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".NewPublication"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".plsc_testing"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".plsc_contact"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Plsc_consultancy"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".Employment"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".AboutUs"
+            android:theme="@style/noaction" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noaction">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Registeration"
+            android:theme="@style/noaction" />
+    </application>
+
+</manifest>

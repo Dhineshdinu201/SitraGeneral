@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="blue_dark">#8DB0F8</color>
+    <color name="blue">#071C47</color>
+    <color name="tab">#8DADF1</color>
+    <color name="p_green">#206423</color>
+    <color name="litetrans">#80ffffff</color>
+    <color name="dark_trans">#80000000</color>
+    <color name="q_yellow">#E06D07</color>
+    <color name="q_blue">#3F51B5</color>
+</resources>

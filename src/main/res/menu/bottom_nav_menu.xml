@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_gps"
+        android:icon="@drawable/gps_small"
+        android:title="GPS" />
+
+    <item
+        android:id="@+id/nav_ukg"
+        android:icon="@drawable/ukg_small"
+        android:title="UKG" />
+
+    <item
+        android:id="@+id/nav_count"
+        android:icon="@drawable/count_small"
+        android:title="count.conv" />
+    <item
+        android:id="@+id/nav_unit"
+        android:icon="@drawable/unit_small"
+        android:title="Unit.Conv" />
+
+
+</menu>
