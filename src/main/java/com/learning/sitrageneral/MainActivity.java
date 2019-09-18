@@ -492,7 +492,6 @@ public void onResume(){
 
     }
 
-    //alertDialogg
     public void showSpecialService(){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
