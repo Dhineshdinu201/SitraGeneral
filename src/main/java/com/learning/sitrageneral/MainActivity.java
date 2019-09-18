@@ -491,7 +491,7 @@ public void onResume(){
 
 
     }
-
+//pushed
     //alertDialogg
     public void showSpecialService(){
         Activity activity = null;
