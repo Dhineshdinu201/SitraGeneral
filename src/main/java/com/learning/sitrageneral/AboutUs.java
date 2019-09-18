@@ -18,6 +18,7 @@ int i=1,j=2,k=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //123456789
         setContentView(R.layout.activity_about_us);
         close_general=(ImageView)findViewById(R.id.close_general);
         general=(TextView)findViewById(R.id.general);

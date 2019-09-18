@@ -20,6 +20,7 @@ public class CardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+        //123456789
         btn_result=(Button)findViewById(R.id.btn_result);
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
