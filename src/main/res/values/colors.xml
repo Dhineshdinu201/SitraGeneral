@@ -11,4 +11,5 @@
     <color name="dark_trans">#80000000</color>
     <color name="q_yellow">#E06D07</color>
     <color name="q_blue">#3F51B5</color>
+    <color name="Toolbar_color">#8DB0F8</color>
 </resources>
