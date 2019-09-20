@@ -26,6 +26,7 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.github.clans:fab:1.6.4'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
     implementation 'com.otaliastudios:zoomlayout:1.7.0'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     testImplementation 'junit:junit:4.12'

@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,7 +50,10 @@ import static java.security.AccessController.getContext;
 public class MainActivity extends AppCompatActivity {
 ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;
 Context context=this;
+String deviceid="";
+String android_id;
 ImageView norms;
+String GET_URL="http://lab.sitraonline.org/index.php/api/app_registration";
 View view1,view2;
 TextView txt_enquiry,txt_profile,txt_logout;
     ArrayAdapter arrayAdapter;
@@ -68,6 +74,16 @@ String url="http://lab.sitraonline.org/index.php/api/app_sitragen_announcement_l
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loading(false);
+
+        WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        android_id = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        Log.i("add",android_id);
+        // splash=(ImageButton) findViewById(R.id.splash);
+        //Splash Screen
+        deviceid=android_id;
 
         view1=(View)findViewById(R.id.view1);
         view2=(View)findViewById(R.id.view2);
@@ -422,7 +438,20 @@ public void onResume(){
         }
 
 
+    public void loading(Boolean status){
+        Activity activity = null;
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        final AlertDialog alertDialog = dialogBuilder.create();
+        LayoutInflater factory = LayoutInflater.from(this);
+        final View vi = factory.inflate(R.layout.alert_loading, null);
+        alertDialog.setView(vi);
+        alertDialog.show();
+        alertDialog.setCancelable(false);
+        if(status==true) {
+           alertDialog.cancel();
+        }
 
+    }
     public void showconsultancy(){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -859,6 +888,53 @@ public void onResume(){
             return false;
         }
     }
+    public void api(){
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+        StringRequest request = new StringRequest(Request.Method.POST, GET_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
 
+                Log.i("My success", "" + response);
+
+
+                try {
+                    //will receive id when the register is success
+                    JSONObject js=new JSONObject(response);
+                    Boolean status=js.getBoolean("status");
+                    if(status==true){
+
+                    }
+                    String err_msg=js.getString("msg");
+                    Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
+                    //************parsing response object**********
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "Somewhere went wrong", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(MainActivity.this, "Please check connectivity", Toast.LENGTH_SHORT).show();
+                Log.i("My error", "" + error);
+            }
+        }) {
+            @Override
+
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                //send your params here
+                map.put("type","1");
+                map.put("mobile_device_id",deviceid);
+
+                return map;
+            }
+        };
+        queue.add(request);
+
+    }
 
 }
