@@ -44,7 +44,8 @@ public class ListPublications extends AppCompatActivity {
     EditText et_search;
     Button search;
     String search_text="";
-    String url="http://lab.sitraonline.org/index.php/api/app_sitragen_listof_publicatons";
+    Constant constant=new Constant();
+    String url=constant.ip+"app_sitragen_listof_publicatons";
     String[] sno={"B1","B12","B14","1","4","5","6","7","8","9","10","11","12","13","14","19","20","21","22","24","26","28","29","31","38","41","42","44","47","48","49","51","53","54","55","57","60","61","62","64","68","70","71","72","73","74","75","76","77","78","79","81","84","85","86","87","89","93","94","102","103","108","109","113","114","115","116","117","118","119"};
     String[] bookname={"50 Years of Growth of SITRA",
             "Practical Guide to Reactive Power Management in Industry",

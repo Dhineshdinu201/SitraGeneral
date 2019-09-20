@@ -46,12 +46,13 @@ public class Fragment_count extends Fragment {
     Spinner spinner_desc;
     EditText count;
     Button reset,getdata;
+    Constant constant;
     List<String> list,id_list,head_list,value_list;
     TableLayout stk;
     TextView head,result_head,result;
     String value;
-    String url = "http://lab.sitraonline.org/index.php/api/get_count_conversion_types";
-    String getdata_url="http://lab.sitraonline.org/index.php/api/get_count_conversion_data";
+    String url = constant.ip+"get_count_conversion_types";
+    String getdata_url=constant.ip+"get_count_conversion_data";
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancetate) {

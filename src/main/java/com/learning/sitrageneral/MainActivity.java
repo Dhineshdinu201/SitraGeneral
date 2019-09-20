@@ -51,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
 ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;
 Context context=this;
 String deviceid="";
-String android_id;
+    Constant constant=new Constant();
+    String android_id;
 ImageView norms;
-String GET_URL="http://lab.sitraonline.org/index.php/api/app_registration";
+String GET_URL=constant.ip+"app_registration";
 View view1,view2;
 TextView txt_enquiry,txt_profile,txt_logout;
     ArrayAdapter arrayAdapter;
@@ -63,7 +64,8 @@ TextView txt_enquiry,txt_profile,txt_logout;
         ImageView profile,logout;
         LinearLayout log,log1;
 
-String url="http://lab.sitraonline.org/index.php/api/app_sitragen_announcement_lists";
+
+String url=constant.ip+"app_sitragen_announcement_lists";
     private SharedPreferences mpref;
     private static final String PREF_NAME="SP_NAME";
     String unique_id="";

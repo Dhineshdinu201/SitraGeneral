@@ -30,8 +30,9 @@ public class Profile_update extends AppCompatActivity {
     String name,mail,org,country,password;
     String mobile;
     String id;
-    String getdata_url="http://lab.sitraonline.org/index.php/api/app_sitra_gen_logged_userdetails";
-    String url="http://lab.sitraonline.org/index.php/api/app_registration";
+    Constant constant=new Constant();
+    String getdata_url=constant.ip+"app_sitra_gen_logged_userdetails";
+    String url=constant.ip+"app_registration";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

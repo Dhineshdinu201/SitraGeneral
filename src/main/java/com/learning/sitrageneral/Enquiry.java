@@ -32,15 +32,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Enquiry extends AppCompatActivity {
+    Constant constant=new Constant();
     EditText et_name,et_mobile,et_mail,et_org,et_country;
     Button btn_submit;
     String name,mail,org,country;
     String mobile;
     String value,id,value_category;
     String iid;
-    String getdata_url="http://lab.sitraonline.org/index.php/api/app_sitragen_deparment_lists";
-    String GetUrl="http://lab.sitraonline.org/index.php/api/app_sitra_gen_logged_userdetails";
-    String url="http://lab.sitraonline.org/index.php/api/app_sitragen_enquiry_category_lists";
+    String getdata_url=constant.ip+"app_sitragen_deparment_lists";
+    String GetUrl=constant.ip+"app_sitra_gen_logged_userdetails";
+    String url=constant.ip+"app_sitragen_enquiry_category_lists";
     List<String> list_dept=new ArrayList<>(),list_category=new ArrayList<>();
     List<String> list_dept_value=new ArrayList<>();
     Spinner spinner_dept,spinner_category;

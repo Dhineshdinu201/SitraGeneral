@@ -50,8 +50,9 @@ public class Fragment_ukg extends Fragment {
     TextView head,result_head,result;
     TableLayout stk;
     String value;
-    String url = "http://lab.sitraonline.org/index.php/api/get_ukg_description_lists";
-    String getdata_url="http://lab.sitraonline.org/index.php/api/get_ukg_conversion_data";
+    Constant constant=new Constant();
+    String url = constant.ip+"get_ukg_description_lists";
+    String getdata_url=constant.ip+"api/get_ukg_conversion_data";
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancetate) {

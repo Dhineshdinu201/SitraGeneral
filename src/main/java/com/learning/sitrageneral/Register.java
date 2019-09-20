@@ -27,7 +27,8 @@ import java.util.Map;
 public class Register extends AppCompatActivity {
 EditText name,org,mobile,email;
 Button register;
-String GET_URL="";
+Constant constant=new Constant();
+String GET_URL=constant.ip+"app_registration";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

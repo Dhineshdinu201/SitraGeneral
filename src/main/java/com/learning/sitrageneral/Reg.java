@@ -33,7 +33,8 @@ public class Reg extends AppCompatActivity {
     Spinner spinner;
     String deviceid="";
     String android_id;
-    String GET_URL="http://lab.sitraonline.org/index.php/api/app_registration";
+    Constant constant=new Constant();
+    String GET_URL=constant.ip+"app_registration";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

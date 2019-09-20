@@ -49,9 +49,10 @@ public class fragment_unit extends Fragment {
     List<String> list,id_list,from_list,from_id_list;
     TextView head,result_head,result,head1,head2,result1,result2;
     String from_value,type_value;
-    String url = "http://lab.sitraonline.org/index.php/api/get_unit_conversion_types";
-    String getfrom_url="http://lab.sitraonline.org/index.php/api/get_unit_conversion_units";
-    String getData="http://lab.sitraonline.org/index.php/api/get_unit_conversion_result_data";
+    Constant constant=new Constant();
+    String url = constant.ip+"get_unit_conversion_types";
+    String getfrom_url=constant.ip+"get_unit_conversion_units";
+    String getData=constant.ip+"get_unit_conversion_result_data";
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancetate) {

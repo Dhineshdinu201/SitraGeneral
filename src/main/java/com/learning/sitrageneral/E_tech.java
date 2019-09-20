@@ -40,7 +40,9 @@ import java.util.Map;
 
 public class E_tech extends AppCompatActivity {
 ImageView nov17,jan18,may18,sep18,jan19;
-String url="http://lab.sitraonline.org/index.php/api/app_sitragen_etech_letter_lists";
+Constant constant=new Constant();
+
+String url=constant.ip+"app_sitragen_etech_letter_lists";
 ArrayList<String> img_name_list=new ArrayList<>();
     ArrayList<String> pdf_name_list=new ArrayList<>();
     @Override

@@ -53,8 +53,9 @@ public class Fragment_gps extends Fragment {
     TextView head,result_head,result;
     String value;
     TableLayout stk;
-    String url = "http://lab.sitraonline.org/index.php/api/get_gps_description_lists";
-    String getdata_url="http://lab.sitraonline.org/index.php/api/get_gps_conversion_data";
+    Constant constant=new Constant();
+    String url = constant.ip+"get_gps_description_lists";
+    String getdata_url=constant.ip+"get_gps_conversion_data";
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancetate) {

@@ -40,7 +40,8 @@ CheckBox checkBox;
     private SharedPreferences mpref;
     private static final String PREF_NAME="SP_NAME";
     String userid,password;
-    String getdata_url="http://lab.sitraonline.org/index.php/api/app_sitra_gen_login";
+    Constant constant=new Constant();
+    String getdata_url=constant.ip+"app_sitra_gen_login";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

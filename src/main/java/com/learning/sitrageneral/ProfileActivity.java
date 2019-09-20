@@ -28,7 +28,8 @@ import java.util.Map;
 public class ProfileActivity extends AppCompatActivity {
 TextView profile;
 String pro,id;
-    String getdata_url="http://lab.sitraonline.org/index.php/api/app_sitra_gen_logged_userdetails";
+Constant constant=new Constant();
+    String getdata_url=constant.ip+"app_sitra_gen_logged_userdetails";
 Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
