@@ -1,6 +1,7 @@
 package com.learning.sitrageneral;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.provider.Settings;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -31,14 +33,25 @@ public class Reg extends AppCompatActivity {
     EditText name,org,mobile,email,password,country;
     Button Register;
     Spinner spinner;
+
     String deviceid="";
     String android_id;
+    String id;
     Constant constant=new Constant();
+    String getdata_url=constant.ip+"app_sitra_gen_logged_userdetails";
     String GET_URL=constant.ip+"app_registration";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
+        try {
+
+            id=getIntent().getStringExtra("id");
+            getData();
+            Log.i("dhinesh",id);
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
         name=(EditText)findViewById(R.id.name);
         org=(EditText)findViewById(R.id.org);
         mobile=(EditText)findViewById(R.id.number);
@@ -74,7 +87,7 @@ public class Reg extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                Log.i("My success", "" + response);
+                Log.i("Registeration", "" + response);
 
 
                 try {
@@ -82,6 +95,11 @@ public class Reg extends AppCompatActivity {
                     JSONObject js=new JSONObject(response);
                     Boolean status=js.getBoolean("status");
                     String id=js.getString("id");
+                        Intent intent = new Intent(Reg.this, MainActivity.class);
+                        intent.putExtra("id", id);
+                        startActivity(intent);
+                        String msg=js.getString("msg");
+                    Toast.makeText(Reg.this, msg, Toast.LENGTH_SHORT).show();
                     //************parsing response object**********
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -104,16 +122,85 @@ public class Reg extends AppCompatActivity {
                 Map<String, String> map = new HashMap<String, String>();
                 //send your params here
                 map.put("type", "2");
-                map.put("mobile_device_id", deviceid);
+                map.put("device_id", deviceid);
                 map.put("name", name.getText().toString());
                 map.put("organization_millname", org.getText().toString());
                 map.put("mobileno", mobile.getText().toString());
                 map.put("emailid", email.getText().toString());
+                map.put("country",country.getText().toString());
+                map.put("password",password.getText().toString());
+                if(id.isEmpty()){
+
+                }else{
+                    map.put("id",id);
+                }
 
                 return map;
             }
         };
         queue.add(request);
 
+    }
+    @Override
+    public void onBackPressed(){
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory( Intent.CATEGORY_HOME );
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeIntent);
+
+    }
+    public void getData(){
+        RequestQueue queue = Volley.newRequestQueue(Reg.this);
+        StringRequest request = new StringRequest(Request.Method.POST, getdata_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.i("My success", "" + response);
+                try {
+                    JSONObject object=new JSONObject(response);
+                    String namee=object.getString("name");
+                    String mobileno=object.getString("mobileno");
+                    String emailid=object.getString("emailid");
+                    String organization_millname=object.getString("organization_millname");
+                    String countryy=object.getString("country");
+                    String passwordd=object.getString("password");
+                    Log.i("result",id+name+mobileno+emailid+organization_millname+country+password);
+                    name.setText(namee);
+                    int mob=0;
+
+                    mobile.setText(mobileno, TextView.BufferType.EDITABLE);
+
+                    email.setText(emailid);
+                    org.setText(organization_millname);
+                    country.setText(countryy);
+                    password.setText(passwordd);
+
+
+                } catch (
+                        JSONException e) {
+                    Toast.makeText(Reg.this, "Credentials Error", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Reg.this, "Please Check Connectivity :" + error, Toast.LENGTH_LONG).show();
+                Log.i("My error", "" + error);
+            }
+        }) {
+            @Override
+
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+
+                map.put("id",""+id);
+
+                return map;
+            }
+        };
+        queue.add(request);
     }
 }

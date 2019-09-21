@@ -44,7 +44,7 @@ Button update;
             update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(ProfileActivity.this,Profile_update.class);
+                    Intent intent=new Intent(ProfileActivity.this,Reg.class);
                     intent.putExtra("id",id);
                     startActivity(intent);
                 }

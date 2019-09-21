@@ -48,24 +48,22 @@ import java.util.Map;
 import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
-ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;
-Context context=this;
-String deviceid="";
+    ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;
+    Context context=this;
+    String deviceid="";
     Constant constant=new Constant();
     String android_id;
-ImageView norms;
-String GET_URL=constant.ip+"app_registration";
-View view1,view2;
-TextView txt_enquiry,txt_profile,txt_logout;
+    ImageView norms;
+    String GET_URL=constant.ip+"app_registration";
+    View view1,view2;
+    TextView txt_enquiry,txt_profile,txt_logout;
     ArrayAdapter arrayAdapter;
     ArrayList<String>images=new ArrayList<>();
     ArrayList<String>announcement=new ArrayList<>();
     TextView notification;
-        ImageView profile,logout;
-        LinearLayout log,log1;
-
-
-String url=constant.ip+"app_sitragen_announcement_lists";
+    ImageView profile,logout;
+    LinearLayout log,log1;
+    String url=constant.ip+"app_sitragen_announcement_lists";
     private SharedPreferences mpref;
     private static final String PREF_NAME="SP_NAME";
     String unique_id="";
@@ -76,8 +74,7 @@ String url=constant.ip+"app_sitragen_announcement_lists";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loading(false);
-
+        api();
         WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();
         android_id = Settings.Secure.getString(getContentResolver(),
@@ -215,23 +212,7 @@ String url=constant.ip+"app_sitragen_announcement_lists";
         try {
 
             id=getIntent().getStringExtra("id");
-            Log.i("id",id);
-            log.setVisibility(View.VISIBLE);
-            txt_logout.setVisibility(View.VISIBLE);
-            txt_profile.setVisibility(View.VISIBLE);
-            view1.setVisibility(View.VISIBLE);
-            view2.setVisibility(View.VISIBLE);
-            profile.setVisibility(View.VISIBLE);
-            logout.setVisibility(View.VISIBLE);
-            log1.setVisibility(View.VISIBLE);
-            special_service.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showSpecialService();
-                }
-
-
-            });
+            Log.i("id",""+id);
         }catch (NullPointerException e){
             txt_profile.setVisibility(View.INVISIBLE);
             txt_logout.setVisibility(View.INVISIBLE);
@@ -249,7 +230,6 @@ String url=constant.ip+"app_sitragen_announcement_lists";
             });
             e.printStackTrace();
         }
-
 
 
         profile.setOnClickListener(new View.OnClickListener() {
@@ -424,8 +404,10 @@ public void onResume(){
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       Intent intent=new Intent(MainActivity.this,LoginActivity.class);
-                       startActivity(intent);
+                            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+                            homeIntent.addCategory( Intent.CATEGORY_HOME );
+                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(homeIntent);
                     }
                 });
                 builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -439,21 +421,6 @@ public void onResume(){
 
         }
 
-
-    public void loading(Boolean status){
-        Activity activity = null;
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        final AlertDialog alertDialog = dialogBuilder.create();
-        LayoutInflater factory = LayoutInflater.from(this);
-        final View vi = factory.inflate(R.layout.alert_loading, null);
-        alertDialog.setView(vi);
-        alertDialog.show();
-        alertDialog.setCancelable(false);
-        if(status==true) {
-           alertDialog.cancel();
-        }
-
-    }
     public void showconsultancy(){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -896,18 +863,47 @@ public void onResume(){
             @Override
             public void onResponse(String response) {
 
-                Log.i("My success", "" + response);
+                Log.i("reg", "" + response);
 
 
                 try {
                     //will receive id when the register is success
+
                     JSONObject js=new JSONObject(response);
                     Boolean status=js.getBoolean("status");
-                    if(status==true){
+                    String err_msg=js.getString("msg");
+                    id=js.getString("id");
+
+                    if(id.equals("0")){
+                        Toast.makeText(context, "Device NOt Registered Yet", Toast.LENGTH_SHORT).show();
+                    }else{
+                        log.setVisibility(View.VISIBLE);
+                        txt_logout.setVisibility(View.VISIBLE);
+                        txt_profile.setVisibility(View.VISIBLE);
+                        view1.setVisibility(View.VISIBLE);
+                        view2.setVisibility(View.VISIBLE);
+                        profile.setVisibility(View.VISIBLE);
+                        logout.setVisibility(View.VISIBLE);
+                        log1.setVisibility(View.VISIBLE);
+                        special_service.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                showSpecialService();
+                            }
+
+
+                        });
 
                     }
-                    String err_msg=js.getString("msg");
-                    Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
+
+                    if(status==false){
+                        Intent intent=new Intent(MainActivity.this,Reg.class);
+                        startActivity(intent);
+                        Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
+                    }
                     //************parsing response object**********
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -930,7 +926,7 @@ public void onResume(){
                 Map<String, String> map = new HashMap<String, String>();
                 //send your params here
                 map.put("type","1");
-                map.put("mobile_device_id",deviceid);
+                map.put("device_id",deviceid);
 
                 return map;
             }
@@ -938,5 +934,6 @@ public void onResume(){
         queue.add(request);
 
     }
+
 
 }
