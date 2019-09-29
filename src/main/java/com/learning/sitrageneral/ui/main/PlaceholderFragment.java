@@ -2,6 +2,8 @@ package com.learning.sitrageneral.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,9 @@ import com.learning.sitrageneral.work_assignment;
 import com.learning.sitrageneral.autowinding;
 import com.learning.sitrageneral.double_winding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -35,7 +40,8 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-
+    List vers;
+    RecyclerView recy1;
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
@@ -71,7 +77,14 @@ public class PlaceholderFragment extends Fragment {
 
         if (getArguments().getInt(ARG_SECTION_NUMBER) == 1){
             ImageView carding,drawing,lap_former,comber,fly_frames,ring_frames,twist_contraction,work_assignment,auto_winding,double_winding,two_for_one_twister;
+
             View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+            recy1=(RecyclerView)rootView.findViewById(R.id.recy1);
+            recy1.setHasFixedSize(true);
+            LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+            recy1.setLayoutManager(layoutManager);
+            data();
+            adapter();
 //            carding=(ImageView)rootView.findViewById(R.id.carding);
 //            drawing=(ImageView)rootView.findViewById(R.id.drawing);
 //            lap_former=(ImageView)rootView.findViewById(R.id.lap_former);
@@ -190,5 +203,15 @@ public class PlaceholderFragment extends Fragment {
             return rootView;
         }
 
+    }
+    private void data(){
+        vers=new ArrayList();
+        for(int i=0;i<=10;i++){
+            vers.add(new Ver("CARDING","Carding is a mechanical preocess that disentangles , cleans and intermixes fibres to produce a continous web or silver suitable for subsequent processing."));
+        }
+    }
+    private void adapter(){
+        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(vers);
+        recy1.setAdapter(recyclerViewAdapter);
     }
 }

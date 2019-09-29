@@ -68,7 +68,6 @@ public class Reg extends AppCompatActivity {
         // splash=(ImageButton) findViewById(R.id.splash);
         //Splash Screen
         deviceid=android_id;
-
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

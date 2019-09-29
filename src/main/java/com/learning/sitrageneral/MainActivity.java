@@ -871,6 +871,7 @@ public void onResume(){
 
                     JSONObject js=new JSONObject(response);
                     Boolean status=js.getBoolean("status");
+                    Log.i("stat",""+status);
                     String err_msg=js.getString("msg");
                     id=js.getString("id");
 
