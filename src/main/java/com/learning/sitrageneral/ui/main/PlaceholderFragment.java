@@ -1,5 +1,6 @@
 package com.learning.sitrageneral.ui.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +39,7 @@ import java.util.List;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    Context context;
     private PageViewModel pageViewModel;
     List vers;
     RecyclerView recy1;
@@ -54,6 +55,7 @@ public class PlaceholderFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
+        context=getActivity();
         int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
@@ -206,12 +208,13 @@ public class PlaceholderFragment extends Fragment {
     }
     private void data(){
         vers=new ArrayList();
-        for(int i=0;i<=10;i++){
-            vers.add(new Ver("CARDING","Carding is a mechanical preocess that disentangles , cleans and intermixes fibres to produce a continous web or silver suitable for subsequent processing."));
-        }
+//        for(int i=0;i<=10;i++){
+        vers.add(new Ver("CARDING","Carding is a mechanical preocess"));
+        vers.add(new Ver("DRAWING","Carding is a mechanical preocess"));
+//        }
     }
     private void adapter(){
-        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(vers);
+        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(context,vers);
         recy1.setAdapter(recyclerViewAdapter);
     }
 }

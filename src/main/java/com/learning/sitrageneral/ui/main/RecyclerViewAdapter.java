@@ -1,5 +1,7 @@
 package com.learning.sitrageneral.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,15 +10,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.learning.sitrageneral.CardActivity;
+import com.learning.sitrageneral.Drawing;
 import com.learning.sitrageneral.R;
 
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     List<Ver> vers;
-
+    Context mContext;
     // RecyclerView recyclerView;
-    public RecyclerViewAdapter(List<Ver> vers) {
+    public RecyclerViewAdapter(Context context, List<Ver> vers) {
+        this.mContext = context;
         this.vers = vers;
     }
     @Override
@@ -35,6 +40,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(),"click on item: "+position, Toast.LENGTH_LONG).show();
+                if(position==0){
+                    Intent intent=new Intent(mContext, CardActivity.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==1){
+                    Intent intent=new Intent(mContext, Drawing.class);
+                    mContext.startActivity(intent);
+                }
             }
         });
     }

@@ -44,12 +44,14 @@ public class Reg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
+
         try {
 
             id=getIntent().getStringExtra("id");
             getData();
             Log.i("dhinesh",id);
         }catch (NullPointerException e){
+            id="";
             e.printStackTrace();
         }
         name=(EditText)findViewById(R.id.name);
@@ -128,11 +130,7 @@ public class Reg extends AppCompatActivity {
                 map.put("emailid", email.getText().toString());
                 map.put("country",country.getText().toString());
                 map.put("password",password.getText().toString());
-                if(id.isEmpty()){
-
-                }else{
-                    map.put("id",id);
-                }
+                map.put("id",id);
 
                 return map;
             }

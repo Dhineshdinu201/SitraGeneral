@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        app:cardBackgroundColor="@color/q_blue"
+        app:cardBackgroundColor="@color/p_green"
         app:cardCornerRadius="8dp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="@color/q_blue">
+            android:background="@color/p_green">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
