@@ -49,6 +49,7 @@
                     android:layout_marginTop="60dp"
                     android:background="@drawable/rounded_edittext"
                     android:hint=" Count"
+                    android:id="@+id/count"
                     android:padding="8dp"
                     android:textColorHint="@android:color/black"
                     android:textCursorDrawable="@drawable/color_cursor" />

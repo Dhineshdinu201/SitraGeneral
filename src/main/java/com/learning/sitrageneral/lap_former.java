@@ -40,7 +40,7 @@ Button btn_result;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lap_former);
         count=(EditText)findViewById(R.id.count);
-        btn_result=(Button)findViewById(R.id.btn_submit);
+        btn_result=(Button)findViewById(R.id.btn_result);
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,10 +69,10 @@ Button btn_result;
 
                     showwdialog();
                     para_name.add("count group");
-                    para_name.add("Delivery Speed(mpm)");
-                    para_name.add("Efficiency");
-                    para_name.add("lapwt");
-                    para_name.add("prodn/card/hour(Kg)");
+                    para_name.add("Average Delivery Speed(mpm)");
+                    para_name.add("Machine Efficiency");
+                    para_name.add("Lap Weight (g/m)");
+                    para_name.add("Production / comber / 8hours (kg)");
                     results.add(count_group);
                     results.add(d_speed);
                     results.add(effy);

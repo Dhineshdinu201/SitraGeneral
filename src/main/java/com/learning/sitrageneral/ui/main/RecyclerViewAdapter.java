@@ -13,6 +13,15 @@ import android.widget.Toast;
 import com.learning.sitrageneral.CardActivity;
 import com.learning.sitrageneral.Drawing;
 import com.learning.sitrageneral.R;
+import com.learning.sitrageneral.activity_two_for_one_twister;
+import com.learning.sitrageneral.autowinding;
+import com.learning.sitrageneral.comber;
+import com.learning.sitrageneral.double_winding;
+import com.learning.sitrageneral.fly_frames;
+import com.learning.sitrageneral.lap_former;
+import com.learning.sitrageneral.ring_frame;
+import com.learning.sitrageneral.twist_contraction;
+import com.learning.sitrageneral.work_assignment;
 
 import java.util.List;
 
@@ -46,6 +55,42 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
                 else if(position==1){
                     Intent intent=new Intent(mContext, Drawing.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==2){
+                    Intent intent=new Intent(mContext, lap_former.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==3){
+                    Intent intent=new Intent(mContext, comber.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==4){
+                    Intent intent=new Intent(mContext, fly_frames.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==5){
+                    Intent intent=new Intent(mContext, ring_frame.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==6){
+                    Intent intent=new Intent(mContext, twist_contraction.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==7){
+                    Intent intent=new Intent(mContext, work_assignment.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==8){
+                    Intent intent=new Intent(mContext, autowinding.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==9){
+                    Intent intent=new Intent(mContext, double_winding.class);
+                    mContext.startActivity(intent);
+                }
+                else if(position==10){
+                    Intent intent=new Intent(mContext, activity_two_for_one_twister.class);
                     mContext.startActivity(intent);
                 }
             }

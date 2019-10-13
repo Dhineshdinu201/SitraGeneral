@@ -43,25 +43,24 @@
                     android:background="@color/p_green"
                     android:orientation="vertical" />
 
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:background="@drawable/rounded_edittext"
                     android:hint=" Count"
+                    android:id="@+id/count"
                     android:padding="8dp"
                     android:textColorHint="@android:color/black"
                     android:textCursorDrawable="@drawable/color_cursor" />
 
-                <EditText
+
+                <Spinner
+                    android:id="@+id/spinner_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:hint=" Type"
-                    android:padding="8dp"
-                    android:textColorHint="@android:color/black"
-                    android:textCursorDrawable="@drawable/color_cursor" />
+                    android:layout_marginTop="20dp" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
