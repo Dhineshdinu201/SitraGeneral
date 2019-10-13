@@ -22,7 +22,6 @@ import com.learning.sitrageneral.lap_former;
 import com.learning.sitrageneral.ring_frame;
 import com.learning.sitrageneral.twist_contraction;
 import com.learning.sitrageneral.work_assignment;
-
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
