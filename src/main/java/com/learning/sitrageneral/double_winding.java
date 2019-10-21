@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -35,7 +36,7 @@ public class double_winding extends AppCompatActivity {
     ArrayList<String> para_name=new ArrayList<>();
     ArrayList<String>results=new ArrayList<>();
     Constant constant=new Constant();
-    String getdata_url=constant.ip+"app_sitragen_norms_productivity_double_winding";
+    String getdata_url=constant.ip+"app_sitragen_norms_productivity_doubler_winding";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +48,15 @@ public class double_winding extends AppCompatActivity {
             public void onClick(View view) {
                 str_count=count.getText().toString();
                 api();
+                get_result.setEnabled(false);
             }
         });
 
     }
     public void api(){
+        para_name.clear();
+        results.clear();
+        Log.i("url",getdata_url);
         RequestQueue queue = Volley.newRequestQueue(double_winding.this);
         StringRequest request = new StringRequest(Request.Method.POST, getdata_url, new Response.Listener<String>() {
             @Override
@@ -68,11 +73,11 @@ public class double_winding extends AppCompatActivity {
                     prate=object.getString("prate");
                     drums=object.getString("drums");
 
-                    showwdialog();
+                    showwdialog("Productivity:Doubler Winding");
                     para_name.add("count group");
-                    para_name.add("Machine efficiency (%)");
-                    para_name.add("Production/tender/8 hours (kg)");
-                    para_name.add("Drums per tender");
+                    para_name.add("Machine efficiency");
+                    para_name.add("production per tenter");
+                    para_name.add("Drums per tenter");
                     results.add(count);
                     results.add(effy);
                     results.add(prate);
@@ -105,14 +110,18 @@ public class double_winding extends AppCompatActivity {
         };
         queue.add(request);
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
@@ -123,7 +132,7 @@ public class double_winding extends AppCompatActivity {
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
-
+        get_result.setEnabled(true);
 
 
 

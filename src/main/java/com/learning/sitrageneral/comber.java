@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,11 +48,14 @@ String str_count;
             public void onClick(View view) {
                 str_count=count.getText().toString();
                 api();
+                get_result.setEnabled(false);
             }
         });
 
     }
     public void api(){
+        para_name.clear();
+        results.clear();
         RequestQueue queue = Volley.newRequestQueue(comber.this);
         StringRequest request = new StringRequest(Request.Method.POST, getdata_url, new Response.Listener<String>() {
             @Override
@@ -70,13 +74,13 @@ String str_count;
                     prodn=object.getString("prate");
                     feedpernip=object.getString("feedpernip");
 
-                    showwdialog();
+                    showwdialog("Productivity:Comber");
                     para_name.add("count group");
                     para_name.add("Lap Weight (g/m)");
                     para_name.add("speed (npm)");
                     para_name.add("Feed per nip (mm)");
                     para_name.add("Machine Efficiency (%)");
-                    para_name.add("Production / comber / 8hours (kg)");
+                    para_name.add("Process parameters and production rate in combers");
                     results.add(count_group);
                     results.add(lapwt);
                     results.add(d_speed);
@@ -111,14 +115,18 @@ String str_count;
         };
         queue.add(request);
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
@@ -130,7 +138,7 @@ String str_count;
         alertDialog.show();
         alertDialog.setCancelable(true);
 
-
+        get_result.setEnabled(true);
 
 
     }

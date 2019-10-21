@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -56,6 +57,7 @@ public class Drawing extends AppCompatActivity {
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_result.setEnabled(false);
                 count=et_count.getText().toString();
                 api3();
 
@@ -228,6 +230,8 @@ public class Drawing extends AppCompatActivity {
 
 
                 try {
+                    para_name.clear();
+                    results.clear();
                     JSONArray jsonArray=new JSONArray(response);
                     for (int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject=jsonArray.getJSONObject(i);
@@ -242,16 +246,16 @@ public class Drawing extends AppCompatActivity {
                         String description=jsonObject.getString("description");
 
                         para_name.add("count group");
-                        para_name.add("Delivery Speed(mpm)");
+                        para_name.add("Delivery Speed");
                         para_name.add("silver hank");
-                        para_name.add("Machine efficiency(%)");
-                        para_name.add("Production per delivery/8 hours");
+                        para_name.add("Machine efficiency");
+                        para_name.add("production rate in Draw Frames");
                         results.add(count_group);
                         results.add(delspeed);
                         results.add(hank);
                         results.add(effy);
                         results.add(prate_hanks);
-                        showwdialog();
+                        showwdialog("Productivity:Drawing");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -286,19 +290,24 @@ public class Drawing extends AppCompatActivity {
 
 
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
+        btn_result.setEnabled(true);
     }
 }

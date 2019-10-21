@@ -215,10 +215,10 @@ public class PlaceholderFragment extends Fragment {
         vers.add(new Ver("COMBER","Carding is a mechanical preocess"));
         vers.add(new Ver("FLY FRAMES","Carding is a mechanical preocess"));
         vers.add(new Ver("RING FRAMES","Carding is a mechanical preocess"));
+        vers.add(new Ver("AUTO WINDING","Carding is a mechanical preocess"));
+        vers.add(new Ver("DOUBLER WINDING","Carding is a mechanical preocess"));
         vers.add(new Ver("TWIST CONTRACTION","Carding is a mechanical preocess"));
         vers.add(new Ver("WORK ASSIGNMENT","Carding is a mechanical preocess"));
-        vers.add(new Ver("AUTO WINDING","Carding is a mechanical preocess"));
-        vers.add(new Ver("DOUBLE WINDING","Carding is a mechanical preocess"));
         vers.add(new Ver("TWO FOR ONE TWISTER","Carding is a mechanical preocess"));
 
 //        }

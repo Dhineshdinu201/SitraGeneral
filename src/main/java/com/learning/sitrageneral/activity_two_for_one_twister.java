@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -56,12 +57,14 @@ public class activity_two_for_one_twister extends AppCompatActivity {
             public void onClick(View v) {
                 count=et_count.getText().toString();
                 api();
+                btn_result.setEnabled(false);
 
             }
         });
     }
     public void api(){
-
+        para_name.clear();
+        results.clear();
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
@@ -132,15 +135,20 @@ public class activity_two_for_one_twister extends AppCompatActivity {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText("Productivity:Two For One Twister");
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
+        btn_result.setEnabled(true);
     }
     public void getParmsList(){
 

@@ -51,36 +51,39 @@ public class CardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count=card_count.getText().toString();
                 getData();
+                btn_result.setEnabled(false);
 
             }
         });
 
 
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
-
-
-
-
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
-
+        btn_result.setEnabled(true);
 
 
 
     }
     public void getData(){
+        para_name.clear();
+        results.clear();
         RequestQueue queue = Volley.newRequestQueue(CardActivity.this);
         StringRequest request = new StringRequest(Request.Method.POST, getdata_url, new Response.Listener<String>() {
             @Override
@@ -101,11 +104,11 @@ public class CardActivity extends AppCompatActivity {
 
 
 
-                    showwdialog();
+                    showwdialog("Productivity:Carding");
                     para_name.add("count group");
-                    para_name.add("Delivery Speed(mpm)");
+                    para_name.add("Delivery Speed");
                     para_name.add("silver hank");
-                    para_name.add("prodn/card/hour(Kg)");
+                    para_name.add("production rate in chute feed cards");
                     results.add(count_group);
                     results.add(d_speed);
                     results.add(silver_hank);

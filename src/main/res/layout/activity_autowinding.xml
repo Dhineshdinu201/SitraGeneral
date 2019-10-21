@@ -33,7 +33,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
 
@@ -41,7 +41,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@color/p_green"
-                    android:orientation="vertical" />
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_gravity="center"
+                        android:text="Auto Winding"/>
+                </LinearLayout>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -49,9 +60,9 @@
                     android:layout_marginTop="60dp"
                     android:background="@drawable/rounded_edittext"
                     android:hint=" Count"
+                    android:inputType="number"
                     android:id="@+id/count"
                     android:padding="8dp"
-                    android:textColorHint="@android:color/black"
                     android:textCursorDrawable="@drawable/color_cursor" />
 
                 <Spinner
@@ -65,6 +76,7 @@
                     android:background="@drawable/prod_curve"
                     android:minWidth="300dp"
                     android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
                     android:layout_marginBottom="50dp"
                     android:layout_gravity="center"
                     android:text="Get Result"
@@ -75,45 +87,5 @@
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/engg"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
-
-    <!--<de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--android:id="@+id/profile_image"-->
-    <!--android:layout_width="96dp"-->
-    <!--android:layout_height="96dp"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:layout_marginStart="8dp"-->
-    <!--android:layout_marginTop="8dp"-->
-    <!--android:layout_marginEnd="8dp"-->
-    <!--android:layout_marginBottom="8dp"-->
-    <!--android:src="@drawable/logo"-->
-    <!--app:civ_border_color="#FF000000"-->
-    <!--app:civ_border_width="2dp"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintHorizontal_bias="0.498"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"-->
-    <!--app:layout_constraintVertical_bias="0.058" />-->
-
-
 
 </android.support.constraint.ConstraintLayout>

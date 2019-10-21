@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -48,6 +49,7 @@ public class fly_frames extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fly_frames);
         spinner_desc=(Spinner)findViewById(R.id.spinner_desc);
+
         getParmsList();
         btn_result=(Button)findViewById(R.id.get_result);
         et_count=(EditText)findViewById(R.id.count);
@@ -55,13 +57,18 @@ public class fly_frames extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count=et_count.getText().toString();
+                btn_result.setEnabled(false);
                 api();
+
 
             }
         });
     }
     public void api(){
-
+        btn_result.setEnabled(true);
+        para_name.clear();
+        results.clear();
+        Log.i("url",url1);
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
@@ -82,16 +89,16 @@ public class fly_frames extends AppCompatActivity {
                         String tpi=jsonObject.getString("tpi");
                         String effy=jsonObject.getString("effy");
                         String prate_kg=jsonObject.getString("prate_kg");
-                        String prate_hanks=jsonObject.getString("prate_hanks");
+                        String prate_hanks=jsonObject.getString("prate_hank");
                         String compact=jsonObject.getString("compact");
 
                         para_name.add("count group");
-                        para_name.add("Spindle Speed(rpm)");
+                        para_name.add("Spindle Speed");
                         para_name.add("Roving hank");
                         para_name.add("Twist multiplier (TM)");
-                        para_name.add("Twists per inch (TPI)");
-                        para_name.add("Machine efficiency(%)");
-                        para_name.add("Production /spindle/8hours");
+                        para_name.add("Twists per inch");
+                        para_name.add("Machine efficiency");
+                        para_name.add("production rate in fly frames");
                         para_name.add("KG");
                         para_name.add("Hanks");
                         results.add(count_group);
@@ -103,7 +110,7 @@ public class fly_frames extends AppCompatActivity {
                         results.add("");
                         results.add(prate_kg);
                         results.add(prate_hanks);
-                        showwdialog();
+                        showwdialog("Productivity:Fly Frames");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -123,7 +130,9 @@ public class fly_frames extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("count",count);
-                map.put("conpact_type",result1);
+                map.put("compact_type",result1);
+                Log.i("count",count);
+                Log.i("compact_type",result1);
 
                 //search_condition
 
@@ -137,23 +146,29 @@ public class fly_frames extends AppCompatActivity {
 
 
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
+
     }
     public void getParmsList(){
 
+        dropdown1.add("Compact(Yes/No)");
             RequestQueue queue = Volley.newRequestQueue(this);
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -168,20 +183,25 @@ public class fly_frames extends AppCompatActivity {
                             JSONObject jsonObject=jsonArray.getJSONObject(i);
                             String id=jsonObject.getString("key");
                             String value=jsonObject.getString("value");
+
                             dropdown1.add(id);
                             //ArrayAdapter<String> adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,dropdown1);
                             ArrayAdapter<String> adapter =
                                     new ArrayAdapter<String>(getApplicationContext(),  android.R.layout.simple_spinner_dropdown_item, dropdown1);
                             adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+                            spinner_desc.setPrompt("Compact(Yes/No)");
                             spinner_desc.setAdapter(adapter);
                             spinner_desc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
                                 public void onItemSelected(AdapterView parent, View view, int position, long id) {
                                     switch (position) {
                                         case 0:
-                                            result1 = dropdown1.get(position);
+                                            result1="";
                                             break;
                                         case 1:
+                                            result1 = dropdown1.get(position);
+                                            break;
+                                        case 2:
                                             result1 = dropdown1.get(position);
 
                                             break;

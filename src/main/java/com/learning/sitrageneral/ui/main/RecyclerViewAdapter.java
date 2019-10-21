@@ -46,7 +46,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"click on item: "+position, Toast.LENGTH_LONG).show();
                 if(position==0){
                     Intent intent=new Intent(mContext, CardActivity.class);
                     mContext.startActivity(intent);
@@ -72,19 +71,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     mContext.startActivity(intent);
                 }
                 else if(position==6){
-                    Intent intent=new Intent(mContext, twist_contraction.class);
+                    Intent intent=new Intent(mContext, autowinding.class);
+
                     mContext.startActivity(intent);
                 }
                 else if(position==7){
-                    Intent intent=new Intent(mContext, work_assignment.class);
+                    Intent intent=new Intent(mContext, double_winding.class);
+
                     mContext.startActivity(intent);
                 }
                 else if(position==8){
-                    Intent intent=new Intent(mContext, autowinding.class);
+                    Intent intent=new Intent(mContext, twist_contraction.class);
                     mContext.startActivity(intent);
                 }
                 else if(position==9){
-                    Intent intent=new Intent(mContext, double_winding.class);
+                    Intent intent=new Intent(mContext, work_assignment.class);
                     mContext.startActivity(intent);
                 }
                 else if(position==10){

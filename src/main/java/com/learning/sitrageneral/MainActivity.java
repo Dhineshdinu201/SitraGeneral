@@ -876,7 +876,7 @@ public void onResume(){
                     id=js.getString("id");
 
                     if(id.equals("0")){
-                        Toast.makeText(context, "Device NOt Registered Yet", Toast.LENGTH_SHORT).show();
+
                     }else{
                         log.setVisibility(View.VISIBLE);
                         txt_logout.setVisibility(View.VISIBLE);
@@ -903,7 +903,7 @@ public void onResume(){
                         Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Toast.makeText(context, err_msg, Toast.LENGTH_SHORT).show();
+
                     }
                     //************parsing response object**********
                 } catch (JSONException e) {

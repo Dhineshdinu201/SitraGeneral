@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -56,12 +57,14 @@ public class ring_frame extends AppCompatActivity {
             public void onClick(View v) {
                 count=et_count.getText().toString();
                 api();
+                btn_result.setEnabled(false);
 
             }
         });
     }
     public void api(){
-
+        para_name.clear();
+        results.clear();
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
@@ -84,11 +87,11 @@ public class ring_frame extends AppCompatActivity {
                         String description=jsonObject.getString("description");
 
                         para_name.add("count");
-                        para_name.add("Spindle Speed(mpm)");
+                        para_name.add("Spindle Speed");
                         para_name.add("Twist multiplier (TM)");
-                        para_name.add("Twists per inch (TPI)");
-                        para_name.add("Machine efficiency(%)");
-                        para_name.add("Production per delivery/8 hours");
+                        para_name.add("Twists per inch");
+                        para_name.add("Machine efficiency");
+                        para_name.add("production rate in ring frames");
                         results.add(count_group);
                         results.add(delspeed);
                         results.add(tm);
@@ -96,7 +99,7 @@ public class ring_frame extends AppCompatActivity {
                         results.add(effy);
                         results.add(prate);
 
-                        showwdialog();
+                        showwdialog("Productivity:Ring Frame");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -130,20 +133,25 @@ public class ring_frame extends AppCompatActivity {
 
 
     }
-    public void showwdialog(){
+    public void showwdialog(String head){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         ListView a_listview ;
 
+
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_view_result, null);
+        TextView a_head;
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText(head);
         a_listview=(ListView)v.findViewById(R.id.a_listview);
         list_alert_view_result listAlertViewResult=new list_alert_view_result(this,para_name,results);
         a_listview.setAdapter(listAlertViewResult);
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
+        btn_result.setEnabled(true);
     }
     public void getParmsList(){
 

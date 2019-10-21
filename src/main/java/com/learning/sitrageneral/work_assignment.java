@@ -56,7 +56,7 @@ public class work_assignment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 api();
-
+                btn_result.setEnabled(false);
             }
         });
     }
@@ -113,17 +113,20 @@ public class work_assignment extends AppCompatActivity {
     public void showwdialog(String html){
         Activity activity = null;
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        TextView result_view;
+        TextView result_view,a_head;
 
         final AlertDialog alertDialog = dialogBuilder.create();
         LayoutInflater factory = LayoutInflater.from(this);
         final View v = factory.inflate(R.layout.alert_result_html, null);
+        a_head=(TextView)v.findViewById(R.id.a_head);
+        a_head.setText("Productivity:Work Assignment");
         result_view=(TextView)v.findViewById(R.id.result_view);
         result_view.setText(Html.fromHtml(html));
 
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
+        btn_result.setEnabled(true);
     }
     public void getParmsList(){
 
