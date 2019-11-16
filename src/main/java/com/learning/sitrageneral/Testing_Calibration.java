@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
-import com.sitra.general.R;
 
 public class Testing_Calibration extends AppCompatActivity {
 TextView linkone,linktwo;

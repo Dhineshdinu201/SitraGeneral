@@ -18,7 +18,7 @@ import android.arch.lifecycle.ViewModelProviders;
 
 import com.learning.sitrageneral.CardActivity;
 import com.learning.sitrageneral.Drawing;
-import com.sitra.general.R;
+import com.learning.sitrageneral.R;
 import com.learning.sitrageneral.activity_two_for_one_twister;
 import com.learning.sitrageneral.lap_former;
 import com.learning.sitrageneral.comber;
@@ -87,112 +87,16 @@ public class PlaceholderFragment extends Fragment {
             recy1.setLayoutManager(layoutManager);
             data();
             adapter();
-//            carding=(ImageView)rootView.findViewById(R.id.carding);
-//            drawing=(ImageView)rootView.findViewById(R.id.drawing);
-//            lap_former=(ImageView)rootView.findViewById(R.id.lap_former);
-//            comber=(ImageView)rootView.findViewById(R.id.comber);
-//            fly_frames=(ImageView)rootView.findViewById(R.id.fly_frames);
-//            ring_frames=(ImageView)rootView.findViewById(R.id.ring_frames);
-//            twist_contraction=(ImageView)rootView.findViewById(R.id.twist_contraction);
-//            work_assignment=(ImageView)rootView.findViewById(R.id.work_assignment);
-//            auto_winding=(ImageView)rootView.findViewById(R.id.auto_winding);
-//            double_winding=(ImageView)rootView.findViewById(R.id.double_winding);
-//            two_for_one_twister=(ImageView)rootView.findViewById(R.id.two_for_one_twister);
-//            carding.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), CardActivity.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            drawing.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), Drawing.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            lap_former.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), lap_former.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            comber.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), comber.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            fly_frames.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), fly_frames.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            ring_frames.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), ring_frame.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            twist_contraction.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), twist_contraction.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            work_assignment.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), work_assignment.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            auto_winding.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), autowinding.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            double_winding.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), double_winding.class);
-//                    startActivity(intent);
-//                }
-//            });
-//            two_for_one_twister.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent=new Intent(getActivity(), activity_two_for_one_twister.class);
-//                    startActivity(intent);
-//                }
-//            });
-
             return rootView;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2){
             View rootView = inflater.inflate(R.layout.fragment_tab_two, container, false);
+            recy1=(RecyclerView)rootView.findViewById(R.id.recy1);
+            recy1.setHasFixedSize(true);
+            LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+            recy1.setLayoutManager(layoutManager);
+            data1();
+            adapter1();
             return rootView;
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 3){
@@ -208,7 +112,6 @@ public class PlaceholderFragment extends Fragment {
     }
     private void data(){
         vers=new ArrayList();
-//        for(int i=0;i<=10;i++){
         vers.add(new Ver("CARDING","Carding is a mechanical preocess"));
         vers.add(new Ver("DRAWING","Carding is a mechanical preocess"));
         vers.add(new Ver("LAP FORMER","Carding is a mechanical preocess"));
@@ -220,11 +123,20 @@ public class PlaceholderFragment extends Fragment {
         vers.add(new Ver("TWIST CONTRACTION","Carding is a mechanical preocess"));
         vers.add(new Ver("WORK ASSIGNMENT","Carding is a mechanical preocess"));
         vers.add(new Ver("TWO FOR ONE TWISTER","Carding is a mechanical preocess"));
-
-//        }
+    }
+    private void data1(){
+        vers=new ArrayList();
+        vers.add(new Ver("INPUT1","Carding is a mechanical preocess"));
+        vers.add(new Ver("INPUT2","Carding is a mechanical preocess"));
+        vers.add(new Ver("INPUT3","Carding is a mechanical preocess"));
+        vers.add(new Ver("INPUT4","Carding is a mechanical preocess"));
     }
     private void adapter(){
         RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(context,vers);
+        recy1.setAdapter(recyclerViewAdapter);
+    }
+    private void adapter1(){
+        RecyclerViewAdapter2 recyclerViewAdapter=new RecyclerViewAdapter2(context,vers);
         recy1.setAdapter(recyclerViewAdapter);
     }
 }

@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sitra.general.R;
-
 import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
 

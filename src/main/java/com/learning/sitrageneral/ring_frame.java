@@ -31,7 +31,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import com.sitra.general.R;
 
 public class ring_frame extends AppCompatActivity {
     Spinner spinner_desc;

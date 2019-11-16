@@ -3,7 +3,6 @@ package com.learning.sitrageneral;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
-import com.sitra.general.R;
 import android.widget.TextView;
 
 public class TextView_html extends AppCompatActivity {

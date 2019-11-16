@@ -2,7 +2,6 @@ package com.learning.sitrageneral;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.sitra.general.R;
 import android.widget.TextView;
 
 public class Con_Engg extends AppCompatActivity {

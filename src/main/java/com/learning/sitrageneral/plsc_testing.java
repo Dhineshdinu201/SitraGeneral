@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
-import com.sitra.general.R;
 
 public class plsc_testing extends AppCompatActivity {
     TextView textview;

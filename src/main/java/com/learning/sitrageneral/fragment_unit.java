@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.sitra.general.R;
 
 public class fragment_unit extends Fragment {
     Spinner spinner_type,spinner_from;

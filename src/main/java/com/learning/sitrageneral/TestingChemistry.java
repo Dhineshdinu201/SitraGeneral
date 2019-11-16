@@ -16,7 +16,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.sitra.general.R;
 
 public class TestingChemistry extends AppCompatActivity {
     private TextView mTextMessage;

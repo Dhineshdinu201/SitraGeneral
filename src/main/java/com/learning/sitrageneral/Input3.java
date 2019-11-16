@@ -1,13 +1,13 @@
 package com.learning.sitrageneral;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class NewPublication extends AppCompatActivity {
+public class Input3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_publication);
-
+        setContentView(R.layout.activity_input3);
     }
 }

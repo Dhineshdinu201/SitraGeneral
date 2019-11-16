@@ -32,7 +32,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import com.sitra.general.R;
 
 public class LoginActivity extends AppCompatActivity {
 EditText et_usermail,et_password;

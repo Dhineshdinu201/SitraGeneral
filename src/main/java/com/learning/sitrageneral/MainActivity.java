@@ -35,18 +35,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.master.glideimageview.GlideImageView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import static java.security.AccessController.getContext;
-import com.sitra.general.R;
 
 public class MainActivity extends AppCompatActivity {
     ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;
@@ -112,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(MainActivity.this,Main2Activity.class);
-                        startActivity(intent);
+                      startActivity(intent);
+                        //Toast.makeText(context, "Coming Soon....", Toast.LENGTH_LONG).show();
                     }
                 });
                 payments.setOnClickListener(new View.OnClickListener() {

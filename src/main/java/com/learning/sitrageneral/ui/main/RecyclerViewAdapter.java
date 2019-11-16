@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.learning.sitrageneral.CardActivity;
 import com.learning.sitrageneral.Drawing;
-import com.sitra.general.R;
+import com.learning.sitrageneral.R;
 import com.learning.sitrageneral.activity_two_for_one_twister;
 import com.learning.sitrageneral.autowinding;
 import com.learning.sitrageneral.comber;

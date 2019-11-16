@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.learning.sitrageneral.ui.main.SectionsPagerAdapter;
-import com.sitra.general.R;
 
 public class Main2Activity extends AppCompatActivity {
 

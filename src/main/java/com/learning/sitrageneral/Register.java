@@ -20,10 +20,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-import com.sitra.general.R;
 
 public class Register extends AppCompatActivity {
 EditText name,org,mobile,email;

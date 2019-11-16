@@ -1,7 +1,6 @@
 package com.learning.sitrageneral;
 
 import android.app.Activity;
-import com.sitra.general.R;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

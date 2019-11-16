@@ -4,12 +4,9 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.bumptech.glide.load.model.UrlLoader;
 import com.github.barteksc.pdfviewer.PDFView;
-
 import java.net.URI;
-import com.sitra.general.R;
 
 
 public class PdfViewer extends AppCompatActivity {
