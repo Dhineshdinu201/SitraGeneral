@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/rounded_edittext"
-                    android:hint="50% Span Length (mm)"
+                    android:hint="Mean Length (mm)"
                     android:inputType="number"
                     android:id="@+id/span_length"
                     android:padding="8dp"
