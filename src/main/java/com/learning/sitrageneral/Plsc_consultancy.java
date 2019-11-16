@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+import com.sitra.general.R;
 
 public class Plsc_consultancy extends AppCompatActivity {
     TextView general,general_text,org,contact,org_text,contact_text;

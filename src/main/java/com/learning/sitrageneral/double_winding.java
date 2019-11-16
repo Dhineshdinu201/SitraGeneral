@@ -28,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+import com.sitra.general.R;
 public class double_winding extends AppCompatActivity {
     EditText count;
     Button get_result;
@@ -47,8 +47,18 @@ public class double_winding extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 str_count=count.getText().toString();
-                api();
-                get_result.setEnabled(false);
+                try{
+                int i_count= Integer.parseInt(str_count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(double_winding.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    get_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(double_winding.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
             }
         });
 

@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.security.AccessController.getContext;
+import com.sitra.general.R;
 
 public class MainActivity extends AppCompatActivity {
     ImageView about,consultancy,coe,employment,plsc,testing,training,publications,payments,special_service,enquiry,contactus;

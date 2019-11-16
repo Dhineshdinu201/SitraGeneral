@@ -66,18 +66,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name"
-                    android:padding="3dp"
+                    
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
 
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/org"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
                     android:layout_width="match_parent"
-                    android:padding="3dp"
+                    
                     android:layout_height="wrap_content"
                     android:hint="Mill or Organization Name"
                     android:inputType="text" />
@@ -85,11 +85,11 @@
                 <EditText
                     android:id="@+id/number"
                     android:layout_width="match_parent"
-                    android:padding="3dp"
+                    
                     android:layout_height="wrap_content"
                     android:hint="Mobile Number"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
                     android:inputType="number"
                     android:maxLength="10" />
 
@@ -98,9 +98,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:padding="3dp"
+                    
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
                     android:inputType="textEmailAddress" />
 
                 <EditText
@@ -108,19 +108,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:padding="3dp"
+                    
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
                     android:inputType="textPassword" />
 
                 <EditText
                     android:id="@+id/Country"
                     android:layout_width="match_parent"
-                    android:padding="3dp"
+                    
                     android:layout_height="wrap_content"
                     android:hint="Country"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rounded_edittext"
+                    
                     android:inputType="text" />
 
                 <Button

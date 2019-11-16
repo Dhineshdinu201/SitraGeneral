@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.sitra.general.R;
 
 public class Drawing extends AppCompatActivity {
     ArrayList<String> para_name=new ArrayList<>();
@@ -57,10 +58,20 @@ public class Drawing extends AppCompatActivity {
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_result.setEnabled(false);
+                try{
                 count=et_count.getText().toString();
-                api3();
 
+                int i_count= Integer.parseInt(count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(Drawing.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api3();
+                    btn_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(Drawing.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
             }
         });
 

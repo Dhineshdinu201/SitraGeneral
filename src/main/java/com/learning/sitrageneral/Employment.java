@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.sitra.general.R;
 
 public class Employment extends AppCompatActivity {
     WebView webn;

@@ -31,7 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+import com.sitra.general.R;
 public class twist_contraction extends AppCompatActivity {
     Spinner spinner_desc;
     Button btn_result;
@@ -57,8 +57,18 @@ public class twist_contraction extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count=et_count.getText().toString();
-                api();
-                btn_result.setEnabled(false);
+                try{
+                int i_count= Integer.parseInt(count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(twist_contraction.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    btn_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(twist_contraction.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
 
             }
         });

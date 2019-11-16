@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import github.hotstu.zebratextview.ZebraTextView;
+import com.sitra.general.R;
 
 public class ListPublications extends AppCompatActivity {
     ListView listView;

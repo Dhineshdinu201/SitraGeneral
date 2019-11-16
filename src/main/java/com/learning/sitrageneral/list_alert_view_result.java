@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import com.sitra.general.R;
 
 public class list_alert_view_result extends ArrayAdapter<String> {
     private final Context context;

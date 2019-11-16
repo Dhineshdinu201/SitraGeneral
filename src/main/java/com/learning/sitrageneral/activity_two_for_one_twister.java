@@ -2,6 +2,7 @@ package com.learning.sitrageneral;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import com.sitra.general.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,13 +57,24 @@ public class activity_two_for_one_twister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count=et_count.getText().toString();
-                api();
-                btn_result.setEnabled(false);
+                try{
+                int i_count= Integer.parseInt(count);
+                if(i_count<=20||i_count>=100){
+                    Toast.makeText(activity_two_for_one_twister.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    btn_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(activity_two_for_one_twister.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
 
             }
         });
     }
     public void api(){
+        dropdown1.add("Type");
         para_name.clear();
         results.clear();
         RequestQueue queue = Volley.newRequestQueue(this);

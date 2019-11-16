@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.sitra.general.R;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,8 +51,19 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count=card_count.getText().toString();
-                getData();
-                btn_result.setEnabled(false);
+                try {
+                    int i_count = Integer.parseInt(count);
+                    if(i_count<=10||i_count>=120){
+                        Toast.makeText(CardActivity.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        getData();
+                        btn_result.setEnabled(false);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(CardActivity.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });

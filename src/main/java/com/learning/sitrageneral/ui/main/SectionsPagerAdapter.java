@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.learning.sitrageneral.R;
+import com.sitra.general.R;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

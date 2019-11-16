@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.sitra.general.R;
 
 public class Registeration extends AppCompatActivity {
     EditText et_name,et_mobile,et_mail,et_org,et_country,et_newpass,et_confirmpass;

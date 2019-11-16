@@ -2,6 +2,7 @@ package com.learning.sitrageneral;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import com.sitra.general.R;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;

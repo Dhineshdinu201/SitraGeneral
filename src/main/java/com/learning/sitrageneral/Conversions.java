@@ -2,6 +2,7 @@ package com.learning.sitrageneral;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.sitra.general.R;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -11,6 +11,7 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.shockwave.pdfium.PdfDocument;
 
 import java.util.List;
+import com.sitra.general.R;
 
 public class PdfActivity extends AppCompatActivity implements OnPageChangeListener,OnLoadCompleteListener {
     private static final String TAG = MainActivity.class.getSimpleName();

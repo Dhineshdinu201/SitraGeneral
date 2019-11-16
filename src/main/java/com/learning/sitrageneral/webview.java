@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
+import com.sitra.general.R;
 
 public class webview extends AppCompatActivity {
 WebView webView;

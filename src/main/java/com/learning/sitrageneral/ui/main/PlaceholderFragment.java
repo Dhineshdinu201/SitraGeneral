@@ -18,7 +18,7 @@ import android.arch.lifecycle.ViewModelProviders;
 
 import com.learning.sitrageneral.CardActivity;
 import com.learning.sitrageneral.Drawing;
-import com.learning.sitrageneral.R;
+import com.sitra.general.R;
 import com.learning.sitrageneral.activity_two_for_one_twister;
 import com.learning.sitrageneral.lap_former;
 import com.learning.sitrageneral.comber;

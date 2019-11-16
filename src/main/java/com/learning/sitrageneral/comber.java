@@ -1,6 +1,7 @@
 package com.learning.sitrageneral;
 
 import android.app.Activity;
+import com.sitra.general.R;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,8 +48,18 @@ String str_count;
             @Override
             public void onClick(View view) {
                 str_count=count.getText().toString();
-                api();
-                get_result.setEnabled(false);
+                try{
+                int i_count= Integer.parseInt(str_count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(comber.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    get_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(comber.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
             }
         });
 

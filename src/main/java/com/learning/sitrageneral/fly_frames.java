@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.sitra.general.R;
 
 public class fly_frames extends AppCompatActivity {
     Spinner spinner_desc;
@@ -56,9 +57,20 @@ public class fly_frames extends AppCompatActivity {
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 count=et_count.getText().toString();
-                btn_result.setEnabled(false);
-                api();
+                try{
+                int i_count= Integer.parseInt(count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(fly_frames.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    btn_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(fly_frames.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
 
 
             }
@@ -167,8 +179,6 @@ public class fly_frames extends AppCompatActivity {
 
     }
     public void getParmsList(){
-
-        dropdown1.add("Compact(Yes/No)");
             RequestQueue queue = Volley.newRequestQueue(this);
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -189,7 +199,6 @@ public class fly_frames extends AppCompatActivity {
                             ArrayAdapter<String> adapter =
                                     new ArrayAdapter<String>(getApplicationContext(),  android.R.layout.simple_spinner_dropdown_item, dropdown1);
                             adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
-                            spinner_desc.setPrompt("Compact(Yes/No)");
                             spinner_desc.setAdapter(adapter);
                             spinner_desc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override

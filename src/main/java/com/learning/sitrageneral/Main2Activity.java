@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.learning.sitrageneral.ui.main.SectionsPagerAdapter;
+import com.sitra.general.R;
 
 public class Main2Activity extends AppCompatActivity {
 

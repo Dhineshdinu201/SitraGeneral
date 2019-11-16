@@ -9,6 +9,7 @@ import com.bumptech.glide.load.model.UrlLoader;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.net.URI;
+import com.sitra.general.R;
 
 
 public class PdfViewer extends AppCompatActivity {

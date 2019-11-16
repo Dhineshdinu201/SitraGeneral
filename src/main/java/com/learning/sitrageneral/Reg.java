@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.sitra.general.R;
 
 public class Reg extends AppCompatActivity {
     EditText name,org,mobile,email,password,country;

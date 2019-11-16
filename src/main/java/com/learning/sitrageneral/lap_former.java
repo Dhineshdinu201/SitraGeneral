@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sitra.general.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,9 +29,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import com.sitra.general.R;
 
 public class lap_former extends AppCompatActivity {
-EditText count;
+EditText et_count;
+String count;
 Button btn_result;
     ArrayList<String> para_name=new ArrayList<>();
     ArrayList<String>results=new ArrayList<>();
@@ -40,13 +43,24 @@ Button btn_result;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lap_former);
-        count=(EditText)findViewById(R.id.count);
+        et_count=(EditText)findViewById(R.id.count);
         btn_result=(Button)findViewById(R.id.btn_result);
         btn_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                api();
-                btn_result.setEnabled(false);
+                count=et_count.getText().toString();
+                try{
+                int i_count= Integer.parseInt(count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(lap_former.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    api();
+                    btn_result.setEnabled(false);
+                }
+            }catch (Exception e){
+                Toast.makeText(lap_former.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
             }
         });
 
@@ -103,7 +117,7 @@ Button btn_result;
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
 
-                map.put("count",count.getText().toString());
+                map.put("count",count);
 
                 return map;
             }

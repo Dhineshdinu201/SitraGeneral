@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+import com.sitra.general.R;
 
 public class plsc_contact extends AppCompatActivity {
    TextView chennimalaitext,karur_text,komarapalayam_text,palladam_text,rajapalayam_text,salem_text,somanur_text,tiruchengode_text,plsc_head_text;

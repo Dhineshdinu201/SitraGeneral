@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import com.sitra.general.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,13 +57,24 @@ public class autowinding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count=et_count.getText().toString();
-                api();
-                btn_result.setEnabled(false);
+                try{
+                int i_count= Integer.parseInt(count);
+                if(i_count<=10||i_count>=120){
+                    Toast.makeText(autowinding.this, "count should between 10 to 120", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    btn_result.setEnabled(false);
+                    api();
+                }
+            }catch (Exception e){
+                Toast.makeText(autowinding.this, "Please enter the count", Toast.LENGTH_SHORT).show();
+            }
 
             }
         });
     }
     public void api(){
+        btn_result.setEnabled(true);
         para_name.clear();
         results.clear();
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -104,9 +116,11 @@ public class autowinding extends AppCompatActivity {
                         results.add(effy);
                         results.add(prate);
                         showwdialog();
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    btn_result.setEnabled(true);
                 }
 
 
@@ -155,12 +169,11 @@ public class autowinding extends AppCompatActivity {
         alertDialog.setView(v);
         alertDialog.show();
         alertDialog.setCancelable(true);
-        btn_result.setEnabled(true);
+
 
 
     }
     public void getParmsList(){
-
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
